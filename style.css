@@ -1,0 +1,20 @@
+.High-Scores {
+
+    position: absolute;
+    top: 15px;
+    left: 15px;
+}
+.Timer {
+    
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+.start-div {
+    text-align: center;   
+}
+
+.container {
+    margin: 90px auto 0 auto;
+    max-width: 650px;
+}
