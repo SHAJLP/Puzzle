@@ -18,4 +18,5 @@ the project is deployed to my Github pages and you can also follow the deploymen
 SHAJLP/github.com
 https://shajlp.github.io/Puzzle/
 
-screenshot img
+screenshots added
+
