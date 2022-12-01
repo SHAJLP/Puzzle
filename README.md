@@ -1,9 +1,19 @@
-Code quiz challenge
-I was set a task to create a quiz which the user would be asked a question which they can answer with  multiple choice answers.
-The quiz itself would include a timer, which would not only countdown, but the user would lose ten second of the time if they answered incorrectly.
-Once an answer is selected, the next question would load until the user has answered all the questions or the timer has run out.
-The user is then able to enter their initials and upload their score to the leaderboard.
-Once that has been done, the user can reset the game to play again.
+README.md
 
+THE QUIZ
 
-//
+This assignment I was tasked with creating a quiz, using a timer.
+
+The user would be presented with a question and multiple choice answers.  The timer starts with 75seconds and starts counting down once the user begins quiz.  
+Whichever answer the user selects, it will then move them onto the next question.
+If, however, the user has selected the wrong answer, then LOSE 10 seconds off the timer!
+
+Once the quiz has come to an end the user can enter their initials and it will be displayed on the leaderboard.  
+The user has the option to reset the game and replay if they so wish.
+
+WHERE TO FIND THE PROJECT
+
+the project is deployed to my Github pages and you can also follow the deployment link included.
+
+SHAJLP/github.com
+https://shajlp.github.io/Puzzle/

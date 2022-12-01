@@ -1,31 +1,31 @@
-// list of  questions, choices, and answers
+// list of all questions, choices, and answers
 var questions = [{
-	question: "Which of the following is not a commonly used data type?",
-	choices: [ "Alerts", "Strings", "Booleans", "Numbers"],
-	answer: "Alerts"
+    question: "Which of the following is not a commonly used data type?",
+    choices: [ "Alerts", "Strings", "Booleans", "Numbers"],
+    answer: "Alerts"
  
  }, {
-	question: "What can arrays in JavaScript can be used to store?",
-	choices: [ "Booleans",  "Numbers and strings", "Other arrays", "All of the above"],
-	answer: "All of the above"
+    question: "What can arrays in JavaScript can be used to store?",
+    choices: [ "Booleans",  "Numbers and strings", "Other arrays", "All of the above"],
+    answer: "All of the above"
  
  }, {
-	question: "How do you enclose the condition of an ' if ' statement?",
-	choices: ["Quotes",  "Square brackets",  "Curly brackets",  "Parentheses"],
-	answer: "Parentheses"
+    question: "How do you enclose the condition of an ' if ' statement?",
+    choices: ["Quotes",  "Square brackets",  "Curly brackets",  "Parentheses"],
+    answer: "Parentheses"
  
  }, {
-	question: "What is a very useful tool for debugging and printing content to the debugger?",
-	choices: ["Console.log", "For loops",  "CSS",  "Terminal/Bash"],
-	answer: "Console.log"
+    question: "What is a very useful tool for debugging and printing content to the debugger?",
+    choices: ["Console.log", "For loops",  "CSS",  "Terminal/Bash"],
+    answer: "Console.log"
  
  }, {
-	question: "What does DOM stand for?",
-	choices: ["Do Over Mulligan", "Document Object Model", "Data Object Model",  "Document Option Model"],
-	answer: "Document Object Model"
+    question: "What does DOM stand for?",
+    choices: ["Do Over Mulligan", "Document Object Model", "Data Object Model",  "Document Option Model"],
+    answer: "Document Object Model"
  }];
  
- // variables to DOM elements
+ // variables to reference DOM elements
  var timerEl = document.getElementById("timer");
  var startButton = document.getElementById('start-btn')
  var answerButtonsEl = document.getElementById('answer-buttons')
@@ -63,155 +63,155 @@ var questions = [{
  // Timer countdown from 75 seconds
  function countDown() {
  
-		if(timeLeft > 0){
-			timerEl.textContent = "Time:  " + timeLeft;
-			timeLeft--
-		}
-		else {
-			timerEl.textContent = "Time:  " + timeLeft;
-			endGame();
-		}
-	}
+        if(timeLeft > 0){
+            timerEl.textContent = "Time:  " + timeLeft;
+            timeLeft--
+        }
+        else {
+            timerEl.textContent = "Time:  " + timeLeft;
+            endGame();
+        }
+    }
  
  
  var createQuestionEl = function(questions) {
  
-	var currentQuestion = questionShuffle[questionCounter]
-	question.textContent = currentQuestion.question;
+    var currentQuestion = questionShuffle[questionCounter]
+    question.textContent = currentQuestion.question;
  
-	answer1.textContent = currentQuestion.choices[0]
-	answer2.textContent = currentQuestion.choices[1]
-	answer3.textContent = currentQuestion.choices[2]
-	answer4.textContent = currentQuestion.choices[3]
+    answer1.textContent = currentQuestion.choices[0]
+    answer2.textContent = currentQuestion.choices[1]
+    answer3.textContent = currentQuestion.choices[2]
+    answer4.textContent = currentQuestion.choices[3]
  
  
  }
  
  
  var checkAnswer = function(event) {
-	var correctAnswer = questions[questionCounter].answer
-	var currentAnswer = event.target.textContent
+    var correctAnswer = questions[questionCounter].answer
+    var currentAnswer = event.target.textContent
  
-	displayEl.classList.remove('hide')
-	displayEl2.classList.remove('hide')
+    displayEl.classList.remove('hide')
+    displayEl2.classList.remove('hide')
  
-	if (currentAnswer === correctAnswer) {
-		displayEl2.classList.add('hide')
-		displayEl.textContent = "------Correct!------"
+    if (currentAnswer === correctAnswer) {
+        displayEl2.classList.add('hide')
+        displayEl.textContent = "------Correct!------"
  
-	} else {
-		displayEl.classList.add('hide')
-		displayEl2.textContent = "------Wrong!------"
+    } else {
+        displayEl.classList.add('hide')
+        displayEl2.textContent = "------Wrong!------"
  
-		timeLeft -= 10;
-	}
-	setTimeout(function() {
-		displayEl.setAttribute("class", "hide");
-	}, 500);
-	setTimeout(function() {
-		displayEl2.setAttribute("class", "hide");
-	}, 500);
+        timeLeft -= 10;
+    }
+    setTimeout(function() {
+        displayEl.setAttribute("class", "hide");
+    }, 500);
+    setTimeout(function() {
+        displayEl2.setAttribute("class", "hide");
+    }, 500);
  
-	questionCounter++;
+    questionCounter++;
  
-	if(questionCounter === questions.length){
-		endGame();
-	} else {
+    if(questionCounter === questions.length){
+        endGame();
+    } else {
  
-	createQuestionEl();
+    createQuestionEl();
  
  }
  
  }
  
  var startGame = function(){
-	timeInterval = setInterval(countDown, 1000);
-	startButton.classList.add('hide')
-	welcomePageEl.classList.add('hide')
-	questionContainerEl.classList.remove('hide')
-	countDown();
-	questionShuffle = questions.sort(() => Math.random() - .5);
+    timeInterval = setInterval(countDown, 1000);
+    startButton.classList.add('hide')
+    welcomePageEl.classList.add('hide')
+    questionContainerEl.classList.remove('hide')
+    countDown();
+    questionShuffle = questions.sort(() => Math.random() - .5);
  
-	// setNextQuestion()
-	createQuestionEl(questionShuffle);
+    // setNextQuestion()
+    createQuestionEl(questionShuffle);
  
  
-	}
+    }
  
  var endGame = function(){
-	clearInterval(timeInterval);
-	questionContainerEl.classList.add('hide')
-	   endGameEl.classList.remove('hide')
-	   scoreEl.textContent = "Your final score is " + timeLeft;
-	   timerEl.classList.add('hide')
-	   highScore();
+    clearInterval(timeInterval);
+    questionContainerEl.classList.add('hide')
+       endGameEl.classList.remove('hide')
+       scoreEl.textContent = "Your final score is " + timeLeft;
+       timerEl.classList.add('hide')
+       highScore();
   }
   function highScore(){
-	submitButton.addEventListener("click", function(event) {
+    submitButton.addEventListener("click", function(event) {
  
  
-	var id = initialsEl.value;
-	var score = timeLeft;
-	var highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
-	if(id.length > 0) {
-		var newScore = {
-			id,
-			score
-		}
-		console.log(id)
-		scoresEl.classList.remove('hide');
-		endGameEl.classList.add('hide');
-		containerEl.classList.add('hide')
-		viewScoreList.classList.add('hide')
-		highscores.push(newScore);
-		window.localStorage.setItem("highscores", JSON.stringify(highscores));
+    var id = initialsEl.value;
+    var score = timeLeft;
+    var highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
+    if(id.length > 0) {
+        var newScore = {
+            id,
+            score
+        }
+        console.log(id)
+        scoresEl.classList.remove('hide');
+        endGameEl.classList.add('hide');
+        containerEl.classList.add('hide')
+        viewScoreList.classList.add('hide')
+        highscores.push(newScore);
+        window.localStorage.setItem("highscores", JSON.stringify(highscores));
  
-	// sort highscores by score property in descending order
-		if(highscores !== undefined) {
-			highscores.sort(function(a,b){
-				return b.score - a.score
-			})
-			highscores.forEach(function(score){
-				console.log(score)
-				// create li for each high score
-				var li = document.createElement("li");
-				li.innerHTML = "<h5>" + score.id + "  " + score.score + "</h5>"
-				var olEl = document.getElementById('newScores');
-				olEl.appendChild(li)
-			})
-		}
-	}
-	console.log(highscores);
+    // sort highscores by score property in descending order
+        if(highscores !== undefined) {
+            highscores.sort(function(a,b){
+                return b.score - a.score
+            })
+            highscores.forEach(function(score){
+                console.log(score)
+                // create li for each high score
+                var li = document.createElement("li");
+                li.innerHTML = "<h5>" + score.id + "  " + score.score + "</h5>"
+                var olEl = document.getElementById('newScores');
+                olEl.appendChild(li)
+            })
+        }
+    }
+    console.log(highscores);
  
  })
   }
  
   function clearHighscores() {
-	localStorage.clear();
-	newScore.classList.add('hide');
+    localStorage.clear();
+    newScore.classList.add('hide');
  }
  
  function viewHighScores(){
-	startButton.classList.add('hide')
-	welcomePageEl.classList.add('hide')
-	questionContainerEl.classList.add('hide')
-	displayEl.classList.add('hide')
-	displayEl2.classList.add('hide')
-	timerEl.classList.add('hide')
-	scoresEl.classList.remove('hide')
-	containerEl.classList.add('hide')
-	viewScoreList.classList.add('hide')
+    startButton.classList.add('hide')
+    welcomePageEl.classList.add('hide')
+    questionContainerEl.classList.add('hide')
+    displayEl.classList.add('hide')
+    displayEl2.classList.add('hide')
+    timerEl.classList.add('hide')
+    scoresEl.classList.remove('hide')
+    containerEl.classList.add('hide')
+    viewScoreList.classList.add('hide')
  
-	var highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
+    var highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
  highscores.sort(function(a,b){
-	return b.score - a.score
+    return b.score - a.score
  })
  
  highscores.forEach(function(score){
-	var li = document.createElement("li");
-	li.innerHTML = "<h5>" + score.id + "  " + score.score + "</h5>"
-	var olEl = document.getElementById('newScores');
-	olEl.appendChild(li)
+    var li = document.createElement("li");
+    li.innerHTML = "<h5>" + score.id + "  " + score.score + "</h5>"
+    var olEl = document.getElementById('newScores');
+    olEl.appendChild(li)
  })
  
  console.log(highscores);
